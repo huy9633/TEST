@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <conio.h>
-//#include <windows.h>
+#include <windows.h>
 #include <ctype.h>
 
 
@@ -107,6 +107,7 @@ void display() {
 	bangsanpham(0, 0, 19);
 	for (int i = 0; i < n; i++) {
 		gotoxy(2, 3 + i); cout << i;
+		
 	}
 }
 int main() {
