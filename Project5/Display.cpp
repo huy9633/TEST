@@ -144,12 +144,12 @@ void Goods::display() {
 		int y = 3 + i;
 		gotoxy(2, y); cout << i+1;
 		gotoxy(5, y); cout << hh[i].seri;
-		gotoxy(16, y); cout << hh[i].place;
+		gotoxy(16, y); cout << hh[i].name;
 		gotoxy(44, y); cout << hh[i].place;
-		gotoxy(16, y); cout << hh[i].color;
-		gotoxy(58, y); cout << hh[i].price;
-		gotoxy(73, y); cout << hh[i].importDate[0] << "/" << hh[i].importDate[1] << "/" << hh[i].importDate[2];
-		gotoxy(87, y); cout << hh[i].amount;
+		gotoxy(58, y); cout << hh[i].color;
+		gotoxy(73, y); cout << hh[i].price;
+		gotoxy(87, y); cout << hh[i].importDate[0] << "/" << hh[i].importDate[1] << "/" << hh[i].importDate[2];
+		gotoxy(106, y); cout << hh[i].amount;
 		
 	}
 }
