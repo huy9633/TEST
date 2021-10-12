@@ -7,42 +7,35 @@
 #include <ctype.h>
 #include <vector>
 #include<fstream>
+#include<iomanip>
+#include<math.h>
 
 
 
 using namespace std;
-
+void gotoxy(short x, short y)
+{
+	HANDLE hConsoleOutput;
+	COORD Cursor_an_Pos = { x, y };
+	hConsoleOutput = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleCursorPosition(hConsoleOutput, Cursor_an_Pos);
+}
 struct goods {
 	string seri="";
 	string name;
 	string place;
 	string color;
 	int price;
-	string Date;
+	int importDate[3];
 	int amount;
 
 	friend istream& operator >>(istream& is, goods& g) {
-		is >> g.seri;
 		is.ignore();
-		getline(is, g.name);// không nhận
-		is.clear();
-		getline(is, g.place);
-		is.clear();
-		getline(is, g.color);
-		is.clear();
+		is >> g.seri >> g.name >> g.place >> g.color;
 		is >> g.price;
-		is >> g.Date;
-		is.clear();
+		is >> g.importDate[0] >> g.importDate[1] >> g.importDate[2];
 		is >> g.amount;
 		return is;
-	}
-	friend ostream& operator <<(ostream& os, goods g) {
-		gotoxy(10, 10);
-		os << g.seri << " " << g.name << " " << g.place << " " << g.color << " ";
-		os << g.price << " ";
-		os << g.Date;
-		os << g.amount << endl;
-		return os;
 	}
 };
 class Goods {
@@ -56,13 +49,7 @@ public:
 	void deleteGoods(string _seri);
 	void display();
 };
-void gotoxy(short x, short y)
-{
-	HANDLE hConsoleOutput;
-	COORD Cursor_an_Pos = { x, y };
-	hConsoleOutput = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleCursorPosition(hConsoleOutput, Cursor_an_Pos);
-}
+
 void viet(int x, int y, int z)
 {
 	gotoxy(x, y);
@@ -150,11 +137,19 @@ void bangsanpham(int x, int y, int sl)
 	//		vietchuoi(x+105,y+1,"Thanh tien",11);
 }
 void Goods::display() {
-	int n = 10;
 	input();
-	bangsanpham(0, 0, 19);
+	int n = hh.size() + 3;
+	bangsanpham(0, 0,n );
 	for (int i = 0; i < hh.size(); i++) {
-		cout << hh[i];
+		int y = 3 + i;
+		gotoxy(2, y); cout << i+1;
+		gotoxy(5, y); cout << hh[i].seri;
+		gotoxy(16, y); cout << hh[i].place;
+		gotoxy(44, y); cout << hh[i].place;
+		gotoxy(16, y); cout << hh[i].color;
+		gotoxy(58, y); cout << hh[i].price;
+		gotoxy(73, y); cout << hh[i].importDate[0] << "/" << hh[i].importDate[1] << "/" << hh[i].importDate[2];
+		gotoxy(87, y); cout << hh[i].amount;
 		
 	}
 }

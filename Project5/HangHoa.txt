@@ -1,15 +1,6 @@
-﻿VNXX
-Xúc Xích
-Việt Nam
-Đỏ
-10000
-11/12/2021
-150
-
-CNMT
-Milk Tea
-Trung Quóc
-Xanh
-15000
-15/12/2021
-100
+﻿G ga HCM vang 45 31 12 2021 30
+H heo HN hong 35 10 10 2021 50
+B bo HCM hong 40 20 11 2021 45
+B bo HCM hong 40 20 11 2021 45
+B bo HCM hong 40 20 11 2021 45
+B bo HCM hong 40 20 11 2021 45
