@@ -9,6 +9,7 @@
 #include <ctype.h>
 #include<iomanip>
 #include<math.h>
+
 using namespace std;
 
 struct goods {
@@ -37,9 +38,6 @@ protected:
 	vector<goods> hh;
 public:
 	bool input();
-	void updateGoods();
-	void addGoods();
-	void deleteGoods(string _seri);
 	void display();
 };
 
@@ -74,26 +72,6 @@ bool Goods::input() {
 	return true;
 }
 
-void Goods::updateGoods() {
-
-}
-
-void Goods::addGoods() {
-	goods add;
-	cin >> add;
-	hh.push_back(add);
-}
-
-void Goods::deleteGoods(string _seri) {
-	bool report = true;
-	for (int i = 0; i < hh.size(); i++) {
-		if (hh[i].seri == _seri) {
-			hh.erase(hh.begin() + i);
-			report = false;
-		}
-	}
-	if (report) cout << "Ma hang hoa khong ton tai !" << endl;
-}
 void gotoxy(short x, short y)
 {
 	HANDLE hConsoleOutput;
