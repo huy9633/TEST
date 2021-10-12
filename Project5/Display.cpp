@@ -1,14 +1,61 @@
-#include <iostream>
+﻿#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <conio.h>
 #include <windows.h>
 #include <ctype.h>
+#include <vector>
+#include<fstream>
+
 
 
 using namespace std;
 
+struct goods {
+	string seri="";
+	string name;
+	string place;
+	string color;
+	int price;
+	string Date;
+	int amount;
+
+	friend istream& operator >>(istream& is, goods& g) {
+		is >> g.seri;
+		is.ignore();
+		getline(is, g.name);// không nhận
+		is.clear();
+		getline(is, g.place);
+		is.clear();
+		getline(is, g.color);
+		is.clear();
+		is >> g.price;
+		is >> g.Date;
+		is.clear();
+		is >> g.amount;
+		return is;
+	}
+	friend ostream& operator <<(ostream& os, goods g) {
+		gotoxy(10, 10);
+		os << g.seri << " " << g.name << " " << g.place << " " << g.color << " ";
+		os << g.price << " ";
+		os << g.Date;
+		os << g.amount << endl;
+		return os;
+	}
+};
+class Goods {
+protected:
+	vector<goods> hh;
+public:
+	bool input();
+	void output();
+	void updateGoods();
+	void addGoods();
+	void deleteGoods(string _seri);
+	void display();
+};
 void gotoxy(short x, short y)
 {
 	HANDLE hConsoleOutput;
@@ -102,16 +149,37 @@ void bangsanpham(int x, int y, int sl)
 	vietchuoi(x + 106, y + 1, "So luong", 11);
 	//		vietchuoi(x+105,y+1,"Thanh tien",11);
 }
-void display() {
+void Goods::display() {
 	int n = 10;
+	input();
 	bangsanpham(0, 0, 19);
-	for (int i = 0; i < n; i++) {
-		gotoxy(2, 3 + i); cout << i;
+	for (int i = 0; i < hh.size(); i++) {
+		cout << hh[i];
 		
 	}
 }
+bool Goods::input() {
+	ifstream input;
+	input.open("HangHoa.txt");// Má»Ÿ file lÃªn
+
+	if (input.is_open()) { // kiá»ƒm tra file Ä‘Ã£ Ä‘Æ°á»£c má»Ÿ chÆ°a
+		while (!input.eof()) { // HÃ m eof() tráº£ vá» true khi con trá» Ä‘Ã£ trá» tá»›i cuá»‘i file
+			goods add;
+			input >> add;
+			hh.push_back(add);
+		}
+	}
+	else {// File khÃ´ng má»Ÿ Ä‘Æ°á»£c thÃ¬ thÃ´ng bÃ¡o ra mÃ n hÃ¬nh 
+		cout << "KHONG the mo duoc FILE HangHoa.txt !" << endl;
+		return false;
+	}
+
+	input.close(); // Ä‘Ã³ng file
+	return true;
+}
 int main() {
-	display();
+	Goods G;
+	G.display();
 	for (;;);
 	system("pause");
 	return 0;
