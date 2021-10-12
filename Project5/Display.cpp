@@ -1,27 +1,18 @@
-﻿#include <iostream>
+﻿#include<iostream>
+#include<string>
+#include<vector>
+#include<fstream>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <conio.h>
 #include <windows.h>
 #include <ctype.h>
-#include <vector>
-#include<fstream>
 #include<iomanip>
 #include<math.h>
-
-
-
 using namespace std;
-void gotoxy(short x, short y)
-{
-	HANDLE hConsoleOutput;
-	COORD Cursor_an_Pos = { x, y };
-	hConsoleOutput = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleCursorPosition(hConsoleOutput, Cursor_an_Pos);
-}
+
 struct goods {
-	string seri="";
+	string seri;
 	string name;
 	string place;
 	string color;
@@ -29,27 +20,87 @@ struct goods {
 	int importDate[3];
 	int amount;
 
-	friend istream& operator >>(istream& is, goods& g) {
-		is.ignore();
-		is >> g.seri >> g.name >> g.place >> g.color;
-		is >> g.price;
-		is >> g.importDate[0] >> g.importDate[1] >> g.importDate[2];
-		is >> g.amount;
+	friend istream& operator >>(istream& is, goods& p) {
+		is >> p.seri;			is.ignore();
+		getline(is, p.name);	is.clear();
+		getline(is, p.place);	is.clear();
+		getline(is, p.color);	is.clear();
+		is >> p.price;
+		is >> p.importDate[0] >> p.importDate[1] >> p.importDate[2];
+		is >> p.amount;
 		return is;
 	}
 };
+
 class Goods {
 protected:
 	vector<goods> hh;
 public:
 	bool input();
-	void output();
 	void updateGoods();
 	void addGoods();
 	void deleteGoods(string _seri);
 	void display();
 };
 
+int main() {
+	Goods a;
+	string s;
+	if (a.input()) {
+		a.display();
+	}
+	for (;;);
+	return 0;
+}
+
+
+bool Goods::input() {
+	ifstream input;
+	input.open("HangHoa.txt");
+
+	if (input.is_open()) {
+		while (!input.eof()) {
+			goods add;
+			input >> add;
+			hh.push_back(add);
+		}
+	}
+	else {
+		cout << "KHONG the mo duoc FILE HangHoa.txt !" << endl;
+		return false;
+	}
+
+	input.close();
+	return true;
+}
+
+void Goods::updateGoods() {
+
+}
+
+void Goods::addGoods() {
+	goods add;
+	cin >> add;
+	hh.push_back(add);
+}
+
+void Goods::deleteGoods(string _seri) {
+	bool report = true;
+	for (int i = 0; i < hh.size(); i++) {
+		if (hh[i].seri == _seri) {
+			hh.erase(hh.begin() + i);
+			report = false;
+		}
+	}
+	if (report) cout << "Ma hang hoa khong ton tai !" << endl;
+}
+void gotoxy(short x, short y)
+{
+	HANDLE hConsoleOutput;
+	COORD Cursor_an_Pos = { x, y };
+	hConsoleOutput = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleCursorPosition(hConsoleOutput, Cursor_an_Pos);
+}
 void viet(int x, int y, int z)
 {
 	gotoxy(x, y);
@@ -139,10 +190,10 @@ void bangsanpham(int x, int y, int sl)
 void Goods::display() {
 	input();
 	int n = hh.size() + 3;
-	bangsanpham(0, 0,n );
+	bangsanpham(0, 0, n);
 	for (int i = 0; i < hh.size(); i++) {
 		int y = 3 + i;
-		gotoxy(2, y); cout << i+1;
+		gotoxy(2, y); cout << i + 1;
 		gotoxy(5, y); cout << hh[i].seri;
 		gotoxy(16, y); cout << hh[i].name;
 		gotoxy(44, y); cout << hh[i].place;
@@ -150,32 +201,6 @@ void Goods::display() {
 		gotoxy(73, y); cout << hh[i].price;
 		gotoxy(87, y); cout << hh[i].importDate[0] << "/" << hh[i].importDate[1] << "/" << hh[i].importDate[2];
 		gotoxy(106, y); cout << hh[i].amount;
-		
-	}
-}
-bool Goods::input() {
-	ifstream input;
-	input.open("HangHoa.txt");// Má»Ÿ file lÃªn
 
-	if (input.is_open()) { // kiá»ƒm tra file Ä‘Ã£ Ä‘Æ°á»£c má»Ÿ chÆ°a
-		while (!input.eof()) { // HÃ m eof() tráº£ vá» true khi con trá» Ä‘Ã£ trá» tá»›i cuá»‘i file
-			goods add;
-			input >> add;
-			hh.push_back(add);
-		}
 	}
-	else {// File khÃ´ng má»Ÿ Ä‘Æ°á»£c thÃ¬ thÃ´ng bÃ¡o ra mÃ n hÃ¬nh 
-		cout << "KHONG the mo duoc FILE HangHoa.txt !" << endl;
-		return false;
-	}
-
-	input.close(); // Ä‘Ã³ng file
-	return true;
-}
-int main() {
-	Goods G;
-	G.display();
-	for (;;);
-	system("pause");
-	return 0;
 }
