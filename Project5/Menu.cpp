@@ -273,7 +273,7 @@ void Goods::Menu() {
 			else if (kt == 2) {
 				system("cls");
 				Search();
-			}
+			}// them chuc nang tu the
 		}
 	}
 }
