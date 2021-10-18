@@ -179,6 +179,5 @@ void Goods::display() {
 		gotoxy(73, y); cout << hh[i].price;
 		gotoxy(87, y); cout << hh[i].importDate[0] << "/" << hh[i].importDate[1] << "/" << hh[i].importDate[2];
 		gotoxy(106, y); cout << hh[i].amount;
-
 	}
 }
