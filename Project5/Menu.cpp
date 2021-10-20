@@ -58,6 +58,9 @@ int keyboard() {
 	else if (k == 13) {//key enter
 		return 3;
 	}
+	else if (k == 27) {//
+		return 4;
+	}
 }
 void textcolor(int x)
 {
@@ -195,7 +198,8 @@ bool Goods::input() {
 	return true;
 }
 void Goods::Menu() {
-	khung(30, 1, 67, 2, 11); vietchuoi(30 + 20, 1 + 1, "CHUONG TRINH QUAN LY BAN HANG", 228);
+	khung(30, 1, 67, 2, 178); vietchuoi(30 + 20, 1 + 1, "CHUONG TRINH QUAN LY BAN HANG", 228);
+	khung(30,3,67,17,178);
 	int kt = 1;
 	int x = 0, y = 0;
 	khung(x + 40, y + 5, 40, 2, 14);	vietchuoi(x + 41, y + 6, "HIEN THI THONG TIN HANH HOA", 6);
@@ -269,6 +273,7 @@ void Goods::Menu() {
 			if (kt == 1) {
 				system("cls");
 				display();
+				break;
 			}
 			else if (kt == 2) {
 				system("cls");
@@ -297,7 +302,7 @@ void Goods::Search() {
 	int vitriTK = 12;
 nhaplai:
 	khung(0 + vitriTK, 0, 100, 2, 14);
-	vietchuoi(1 + vitriTK, 1, "TIEM KIEM:", 206);
+	vietchuoi(1 + vitriTK, 1, "TIM KIEM:", 206);
 	gotoxy(12 + vitriTK, 1); textcolor(14); fflush(stdin); getline(cin, s);
 	int tam = tksanpham(hh, s);
 	if (tam == -1) {
