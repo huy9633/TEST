@@ -31,7 +31,7 @@ struct goods {
 	}
 };
 
-class Goods{
+class Goods {
 protected:
 	vector<goods> hh;
 public:
@@ -58,7 +58,7 @@ int keyboard() {
 	else if (k == 13) {//key enter
 		return 3;
 	}
-	else if (k == 27) {//
+	else if (k == 27) {// key esc
 		return 4;
 	}
 }
@@ -199,13 +199,14 @@ bool Goods::input() {
 }
 void Goods::Menu() {
 	khung(30, 1, 67, 2, 178); vietchuoi(30 + 20, 1 + 1, "CHUONG TRINH QUAN LY BAN HANG", 228);
-	khung(30,3,67,17,178);
+	khung(30, 3, 67, 17, 178);
 	int kt = 1;
 	int x = 0, y = 0;
-	khung(x + 40, y + 5, 40, 2, 14);	vietchuoi(x + 41, y + 6, "HIEN THI THONG TIN HANH HOA", 6);
-	khung(x + 40, y + 5+3, 40, 2, 0);	vietchuoi(x + 41, y + 6+3, "TIEM KIEM THONG TIN HANG HOA", 6);
-	khung(x + 40, y + 5+6, 40, 2,0);	vietchuoi(x + 41, y + 6+6, "DAT HANG", 6);
-	khung(x + 40, y + 5+9, 40, 2, 0);	vietchuoi(x + 41, y + 6+9, "QUAN LY", 6);
+	khung(x + 40, y + 5, 40, 2, 14);	vietchuoi(x + 41, y + 6, "HIEN THI THONG TIN HANH HOA", 15);
+	khung(x + 40, y + 5 + 3, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 3, "TIM KIEM THONG TIN HANG HOA", 6);
+	khung(x + 40, y + 5 + 6, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 6, "DAT HANG", 6);
+	khung(x + 40, y + 5 + 9, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 9, "QUAN LY", 6);
+	khung(x + 40, y + 5 + 12, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 12, "THOAT", 6);
 	for (;;) {
 		gotoxy(0, 0);
 		int k = keyboard();
@@ -213,61 +214,86 @@ void Goods::Menu() {
 			if (kt == 1) {
 				kt = 2;
 				khung(x + 40, y + 5, 40, 2, 0);	vietchuoi(x + 41, y + 6, "HIEN THI THONG TIN HANH HOA", 6);
-				khung(x + 40, y + 5 + 3, 40, 2, 14);	vietchuoi(x + 41, y + 6 + 3, "TIEM KIEM THONG TIN HANG HOA", 6);
+				khung(x + 40, y + 5 + 3, 40, 2, 14);	vietchuoi(x + 41, y + 6 + 3, "TIM KIEM THONG TIN HANG HOA", 15);
 				khung(x + 40, y + 5 + 6, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 6, "DAT HANG", 6);
 				khung(x + 40, y + 5 + 9, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 9, "QUAN LY", 6);
+				khung(x + 40, y + 5 + 12, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 12, "THOAT", 6);
 			}
 			else if (kt == 2) {
 				kt = 3;
 				khung(x + 40, y + 5, 40, 2, 0);	vietchuoi(x + 41, y + 6, "HIEN THI THONG TIN HANH HOA", 6);
-				khung(x + 40, y + 5 + 3, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 3, "TIEM KIEM THONG TIN HANG HOA", 6);
-				khung(x + 40, y + 5 + 6, 40, 2, 14);	vietchuoi(x + 41, y + 6 + 6, "DAT HANG", 6);
+				khung(x + 40, y + 5 + 3, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 3, "TIM KIEM THONG TIN HANG HOA", 6);
+				khung(x + 40, y + 5 + 6, 40, 2, 14);	vietchuoi(x + 41, y + 6 + 6, "DAT HANG", 15);
 				khung(x + 40, y + 5 + 9, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 9, "QUAN LY", 6);
+				khung(x + 40, y + 5 + 12, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 12, "THOAT", 6);
 			}
 			else if (kt == 3) {
 				kt = 4;
 				khung(x + 40, y + 5, 40, 2, 0);	vietchuoi(x + 41, y + 6, "HIEN THI THONG TIN HANH HOA", 6);
-				khung(x + 40, y + 5 + 3, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 3, "TIEM KIEM THONG TIN HANG HOA", 6);
+				khung(x + 40, y + 5 + 3, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 3, "TIM KIEM THONG TIN HANG HOA", 6);
 				khung(x + 40, y + 5 + 6, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 6, "DAT HANG", 6);
-				khung(x + 40, y + 5 + 9, 40, 2, 14);	vietchuoi(x + 41, y + 6 + 9, "QUAN LY", 6);
+				khung(x + 40, y + 5 + 9, 40, 2, 14);	vietchuoi(x + 41, y + 6 + 9, "QUAN LY", 15);
+				khung(x + 40, y + 5 + 12, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 12, "THOAT", 6);
 			}
 			else if (kt == 4) {
-				kt = 1;
-				khung(x + 40, y + 5, 40, 2, 14);	vietchuoi(x + 41, y + 6, "HIEN THI THONG TIN HANH HOA", 6);
-				khung(x + 40, y + 5 + 3, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 3, "TIEM KIEM THONG TIN HANG HOA", 6);
+				kt = 5;
+				khung(x + 40, y + 5, 40, 2, 0);	vietchuoi(x + 41, y + 6, "HIEN THI THONG TIN HANH HOA", 6);
+				khung(x + 40, y + 5 + 3, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 3, "TIM KIEM THONG TIN HANG HOA", 6);
 				khung(x + 40, y + 5 + 6, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 6, "DAT HANG", 6);
 				khung(x + 40, y + 5 + 9, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 9, "QUAN LY", 6);
+				khung(x + 40, y + 5 + 12, 40, 2, 14);	vietchuoi(x + 41, y + 6 + 12, "THOAT", 15);
+			}
+			else if (kt == 5) {
+				kt = 1;
+				khung(x + 40, y + 5, 40, 2, 14);	vietchuoi(x + 41, y + 6, "HIEN THI THONG TIN HANH HOA", 15);
+				khung(x + 40, y + 5 + 3, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 3, "TIM KIEM THONG TIN HANG HOA", 6);
+				khung(x + 40, y + 5 + 6, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 6, "DAT HANG", 6);
+				khung(x + 40, y + 5 + 9, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 9, "QUAN LY", 6);
+				khung(x + 40, y + 5 + 12, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 12, "THOAT", 6);
 			}
 		}
 		else if (k == 1) {
 			if (kt == 1) {
-				kt = 2;
+				kt = 5;
 				khung(x + 40, y + 5, 40, 2, 0);	vietchuoi(x + 41, y + 6, "HIEN THI THONG TIN HANH HOA", 6);
-				khung(x + 40, y + 5 + 3, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 3, "TIEM KIEM THONG TIN HANG HOA", 6);
+				khung(x + 40, y + 5 + 3, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 3, "TIM KIEM THONG TIN HANG HOA", 6);
 				khung(x + 40, y + 5 + 6, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 6, "DAT HANG", 6);
-				khung(x + 40, y + 5 + 9, 40, 2, 14);	vietchuoi(x + 41, y + 6 + 9, "QUAN LY", 6);
-			}
-			else if (kt == 2) {
-				kt = 3;
-				khung(x + 40, y + 5, 40, 2, 0);	vietchuoi(x + 41, y + 6, "HIEN THI THONG TIN HANH HOA", 6);
-				khung(x + 40, y + 5 + 3, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 3, "TIEM KIEM THONG TIN HANG HOA", 6);
-				khung(x + 40, y + 5 + 6, 40, 2, 14);	vietchuoi(x + 41, y + 6 + 6, "DAT HANG", 6);
 				khung(x + 40, y + 5 + 9, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 9, "QUAN LY", 6);
+				khung(x + 40, y + 5 + 12, 40, 2, 14);	vietchuoi(x + 41, y + 6 + 12, "THOAT", 15);
 			}
-			else if (kt == 3) {
+			else if (kt == 5) {
 				kt = 4;
 				khung(x + 40, y + 5, 40, 2, 0);	vietchuoi(x + 41, y + 6, "HIEN THI THONG TIN HANH HOA", 6);
-				khung(x + 40, y + 5 + 3, 40, 2, 14);	vietchuoi(x + 41, y + 6 + 3, "TIEM KIEM THONG TIN HANG HOA", 6);
+				khung(x + 40, y + 5 + 3, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 3, "TIM KIEM THONG TIN HANG HOA", 6);
 				khung(x + 40, y + 5 + 6, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 6, "DAT HANG", 6);
-				khung(x + 40, y + 5 + 9, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 9, "QUAN LY", 6);
+				khung(x + 40, y + 5 + 9, 40, 2, 14);	vietchuoi(x + 41, y + 6 + 9, "QUAN LY", 15);
+				khung(x + 40, y + 5 + 12, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 12, "THOAT", 6);
 			}
 			else if (kt == 4) {
-				kt = 1;
-				khung(x + 40, y + 5, 40, 2, 14);	vietchuoi(x + 41, y + 6, "HIEN THI THONG TIN HANH HOA", 6);
-				khung(x + 40, y + 5 + 3, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 3, "TIEM KIEM THONG TIN HANG HOA", 6);
+				kt = 3;
+				khung(x + 40, y + 5, 40, 2, 0);	vietchuoi(x + 41, y + 6, "HIEN THI THONG TIN HANH HOA", 6);
+				khung(x + 40, y + 5 + 3, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 3, "TIM KIEM THONG TIN HANG HOA", 6);
+				khung(x + 40, y + 5 + 6, 40, 2, 14);	vietchuoi(x + 41, y + 6 + 6, "DAT HANG", 15);
+				khung(x + 40, y + 5 + 9, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 9, "QUAN LY", 6);
+				khung(x + 40, y + 5 + 12, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 12, "THOAT", 6);
+			}
+			else if (kt == 3) {
+				kt = 2;
+				khung(x + 40, y + 5, 40, 2, 0);	vietchuoi(x + 41, y + 6, "HIEN THI THONG TIN HANH HOA", 6);
+				khung(x + 40, y + 5 + 3, 40, 2, 14);	vietchuoi(x + 41, y + 6 + 3, "TIM KIEM THONG TIN HANG HOA", 15);
 				khung(x + 40, y + 5 + 6, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 6, "DAT HANG", 6);
 				khung(x + 40, y + 5 + 9, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 9, "QUAN LY", 6);
+				khung(x + 40, y + 5 + 12, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 12, "THOAT", 6);
 			}
+			else if (kt == 2) {
+				kt = 1;
+				khung(x + 40, y + 5, 40, 2, 14);	vietchuoi(x + 41, y + 6, "HIEN THI THONG TIN HANH HOA", 15);
+				khung(x + 40, y + 5 + 3, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 3, "TIM KIEM THONG TIN HANG HOA", 6);
+				khung(x + 40, y + 5 + 6, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 6, "DAT HANG", 6);
+				khung(x + 40, y + 5 + 9, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 9, "QUAN LY", 6);
+				khung(x + 40, y + 5 + 12, 40, 2, 0);	vietchuoi(x + 41, y + 6 + 12, "THOAT", 6);
+			}
+
 		}
 		else if (k == 3) {
 			if (kt == 1) {
@@ -278,15 +304,24 @@ void Goods::Menu() {
 			else if (kt == 2) {
 				system("cls");
 				Search();
+
 			}// them chuc nang tu the
+			else if (kt == 5) {
+				system("cls");
+				cout << "Dang thoat chuong trinh..." << endl;
+				cout << "Nhan Enter de thoat";
+				exit(0);
+
+			}
 		}
 	}
 }
 void Goods::display() {
 	int n = hh.size() + 3;
-	bangsanpham(0, 0, n);
+	vietchuoi(50, 1, "Nhan [ESC] de tro ve ", 12);
+	bangsanpham(0, 2, n);
 	for (int i = 0; i < hh.size(); i++) {
-		int y = 3 + i;
+		int y = 5 + i;
 		gotoxy(2, y); cout << i + 1;
 		gotoxy(5, y); cout << hh[i].seri;
 		gotoxy(16, y); cout << hh[i].name;
@@ -296,11 +331,17 @@ void Goods::display() {
 		gotoxy(87, y); cout << hh[i].importDate[0] << "/" << hh[i].importDate[1] << "/" << hh[i].importDate[2];
 		gotoxy(106, y); cout << hh[i].amount;
 	}
+
+	int h = keyboard();
+	if (h == 4) {
+		system("cls");
+		Menu();
+	}
 }
 void Goods::Search() {
 	string s;
 	int vitriTK = 12;
-nhaplai:
+	nhaplai:
 	khung(0 + vitriTK, 0, 100, 2, 14);
 	vietchuoi(1 + vitriTK, 1, "TIM KIEM:", 206);
 	gotoxy(12 + vitriTK, 1); textcolor(14); fflush(stdin); getline(cin, s);
@@ -322,5 +363,11 @@ nhaplai:
 		gotoxy(73, y); cout << hh[tam].price;
 		gotoxy(87, y); cout << hh[tam].importDate[0] << "/" << hh[tam].importDate[1] << "/" << hh[tam].importDate[2];
 		gotoxy(106, y); cout << hh[tam].amount;
+		vietchuoi(55, 10, "Nhan [ESC] de tro ve ", 12);
+	}
+	int h = keyboard();
+	if (h == 4) {
+		system("cls");
+		Menu();
 	}
 }
