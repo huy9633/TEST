@@ -1,5 +1,5 @@
-#ifndef __FUNCTIONS__
-#define __FUNCTIONS__
+#ifndef __MENU__
+#define __MENU__
 #include<iostream>
 #include<string>
 #include<vector>
