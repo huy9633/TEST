@@ -1,7 +1,10 @@
 #ifndef __MENU__
 #define __MENU__
-#include<iostream>
-#include<string>
+
+#include"goods.h"
+//#include<iostream>
+//#include<string>
+
 #include<vector>
 #include<fstream>
 #include <stdio.h>
@@ -11,6 +14,7 @@
 #include <ctype.h>
 #include<iomanip>
 #include<math.h>
+
 
 using namespace std;
 
