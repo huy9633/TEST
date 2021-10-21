@@ -2,7 +2,7 @@
 #define __GOODSMANAGEMENT__
 
 #include"goods.h"
-#include"Functions.h"
+#include"Menu.h"
 #include<vector>
 #include<fstream>
 using namespace std;
