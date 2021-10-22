@@ -1,9 +1,7 @@
-#include<iostream>
-//
-#include"goods.h"
 #include"GoodManagement.h"
 #include"Search.h"
 #include"Display.h"
+
 using namespace std;
 
 class Goods {
@@ -20,15 +18,14 @@ public:
 		TK(hh);
 	}
 	bool input();
-	void Menu();
+	
 };
-
+void Menu(Goods g);
 
 int main() {
 	Goods a;
 	if (a.input()) {
-		//a.goodManagement();
-		a.Menu();
+		Menu(a);
 	}
 	return 0;
 }
@@ -52,7 +49,7 @@ bool Goods::input() {
 	input.close();
 	return true;
 }
-void Goods::Menu() {
+void Menu(Goods g) {
 	khung(30, 1, 67, 2, 14);
 	khung(30, 3, 67, 17, 14);
 	vietchuoi(30 + 20, 1 + 1, "CHUONG TRINH QUAN LY BAN HANG", 228);
@@ -153,13 +150,13 @@ void Goods::Menu() {
 		else if (k == 3) {
 			if (kt == 1) {
 				system("cls");
-				Display();
-				Menu();
+				g.Display();
+				Menu(g);
 			}
 			else if (kt == 2) {
 				system("cls");
-				Search();
-				Menu();
+				g.Search();
+				Menu(g);
 			}// them chuc nang tu the
 			else if (kt == 5) {
 				system("cls");
