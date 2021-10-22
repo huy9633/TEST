@@ -12,6 +12,7 @@ public:
 	vector<goods> &getHH() {
 		return hh;
 	}
+	// them cac chuc nang vao
 	void goodManagement() {
 		GM(hh);//
 	}
