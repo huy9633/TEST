@@ -1,4 +1,5 @@
 #include"GoodManagement.h"
+#include"OrderProcessing.h"
 #include"Search.h"
 #include"Display.h"
 
@@ -8,18 +9,33 @@ class Goods {
 protected:
 	vector<goods> hh;
 public:
+	vector<goods> &getHH() {
+		return hh;
+	}
 	void goodManagement() {
-		GM(hh);
+		GM(hh);//
 	}
 	void Display() {
-		HT(hh);
+		
 	}
 	void Search() {
-		TK(hh);
+
 	}
-	bool input();
-	
+	bool input() {
+		return Input(hh);
+	}
 };
+
+class Orders {
+protected:
+	vector< vector <orders> > dh;
+public:
+	void order(Goods &g) {
+		ORDER(dh, g.getHH());
+	}
+};
+
+
 void Menu(Goods g);
 
 int main() {
@@ -30,25 +46,6 @@ int main() {
 	return 0;
 }
 
-bool Goods::input() {
-	ifstream input;
-	input.open("HangHoa.txt");
-
-	if (input.is_open()) {
-		while (!input.eof()) {
-			goods add;
-			input >> add;
-			hh.push_back(add);
-		}
-	}
-	else {
-		cout << "input() : KHONG the mo duoc FILE HangHoa.txt !" << endl;
-		return false;
-	}
-
-	input.close();
-	return true;
-}
 void Menu(Goods g) {
 	khung(30, 1, 67, 2, 14);
 	khung(30, 3, 67, 17, 14);
