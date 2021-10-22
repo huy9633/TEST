@@ -1,7 +1,9 @@
-﻿#include<iostream>
+#include<iostream>
 //
 #include"goods.h"
 #include"GoodManagement.h"
+#include"Search.h"
+#include"Display.h"
 using namespace std;
 
 class Goods {
@@ -12,10 +14,10 @@ public:
 		GM(hh);
 	}
 	void Display() {
-		
+		HT(hh);
 	}
 	void Search() {
-
+		TK(hh);
 	}
 	bool input();
 	void Menu();
@@ -34,9 +36,9 @@ int main() {
 bool Goods::input() {
 	ifstream input;
 	input.open("HangHoa.txt");
-	
+
 	if (input.is_open()) {
-		while (!input.eof()) { 
+		while (!input.eof()) {
 			goods add;
 			input >> add;
 			hh.push_back(add);
@@ -47,7 +49,7 @@ bool Goods::input() {
 		return false;
 	}
 
-	input.close(); 
+	input.close();
 	return true;
 }
 void Goods::Menu() {
@@ -151,20 +153,19 @@ void Goods::Menu() {
 		else if (k == 3) {
 			if (kt == 1) {
 				system("cls");
-				//display();
-				break;
+				Display();
+				Menu();
 			}
 			else if (kt == 2) {
 				system("cls");
 				Search();
-
+				Menu();
 			}// them chuc nang tu the
 			else if (kt == 5) {
 				system("cls");
 				cout << "Dang thoat chuong trinh..." << endl;
 				cout << "Nhan Enter de thoat";
 				exit(0);
-
 			}
 		}
 	}
