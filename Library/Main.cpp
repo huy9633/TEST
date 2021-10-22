@@ -2,6 +2,7 @@
 #include"OrderProcessing.h"
 #include"Search.h"
 #include"Display.h"
+#include "CheckAndReport.h"
 
 using namespace std;
 
@@ -33,6 +34,10 @@ protected:
 public:
 	void order(Goods &g) {
 		ORDER(dh, g.getHH());
+	}
+	void checkAndReport(Goods& g)
+	{
+		CheckAndReport(g.getHH(), dh);
 	}
 };
 
