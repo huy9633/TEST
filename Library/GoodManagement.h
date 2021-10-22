@@ -6,6 +6,25 @@
 
 using namespace std;
 
+bool Input(vector<goods>& _hh) {
+	ifstream input;
+	input.open("HangHoa.txt");
+
+	if (input.is_open()) {
+		while (!input.eof()) {
+			goods add;
+			input >> add;
+			_hh.push_back(add);
+		}
+	}
+	else {
+		cout << "input() : KHONG the mo duoc FILE HangHoa.txt !" << endl;
+		return false;
+	}
+
+	input.close();
+	return true;
+}
 void updateGoods(vector<goods>& hh) {
 	// Neu ma hang ton tai thi cap nhat lai so luong hang hoa tuong ung
 	for (int i = 0; i < hh.size(); i++) {
@@ -170,8 +189,6 @@ void GM(vector<goods>& hh) {
 					vietchuoi(40, 6, "Ma Hang Hoa Khong Ton Tai !", 4);
 					Sleep(1000);
 				}
-				
-				
 			}
 			else if (ck == 3) {
 				system("cls");
@@ -195,4 +212,5 @@ void GM(vector<goods>& hh) {
 		}
 	}
 }
+
 #endif
