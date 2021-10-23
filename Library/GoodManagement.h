@@ -209,7 +209,7 @@ void GOODS_MANAGEMENT(vector<goods>& hh) {
 
 			}
 			system("cls");
-			GM(hh);
+			GOODS_MANAGEMENT(hh);
 		}
 	}
 }
