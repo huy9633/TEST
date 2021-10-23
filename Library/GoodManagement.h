@@ -72,7 +72,6 @@ bool deleteGoods(vector<goods>& hh, string _seri) {
 	return report;
 }
 void GOODS_MANAGEMENT(vector<goods>& hh) {
-	int n;
 	khung(30, 3, 67, 17, 14);
 	int ck = 1;
 	int x = 0, y = 0;
