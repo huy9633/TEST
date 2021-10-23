@@ -13,9 +13,8 @@ public:
 	vector<goods> &getHH() {
 		return hh;
 	}
-	// them cac chuc nang vao
 	void goodManagement() {
-		GM(hh);//
+		GOODS_MANAGEMENT(hh);//
 	}
 	void Display() {
 		
@@ -32,15 +31,13 @@ class Orders {
 protected:
 	vector< vector <orders> > dh;
 public:
-	void order(Goods &g) {
-		ORDER(dh, g.getHH());
+	void orderProcessing(Goods &g) {
+		ORDERS_PROCESSING(dh, g.getHH());
 	}
-	void checkAndReport(Goods& g)
-	{
-		CheckAndReport(g.getHH(), dh);
+	void checkAndReport(Goods g) {
+		CHECKANDREPORT(g.getHH());
 	}
 };
-
 
 void Menu(Goods g);
 
