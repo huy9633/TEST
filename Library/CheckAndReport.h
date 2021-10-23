@@ -15,10 +15,19 @@ void CHECKANDREPORT(vector<goods> hanghoa) {
 	os.open("DonHang.txt", fstream::app);
 
 	for (i = 0; i < count;) {
-		x.number = count;
+	
 		// nhap don hang
-		cin >> x;
-		
+		x.number = count;
+		cin >> x.seri;
+		cin >> x.amount;					cin.ignore();
+		getline(cin, x.customerName);	cin.clear();
+		getline(cin, x.address);			cin.clear();
+		cin >> x.phoneNumber;
+		for (int i = 0; i < 3; i++) {
+			cin >> x.orderDate[i];
+		}
+		x.calculateTotalMoney(hanghoa); // ham tu tinh tong tien (total money)
+
 		for (int i = 0; i < hanghoa.size(); i++)
 		{
 			if (hanghoa[i].seri == x.seri)
@@ -27,8 +36,8 @@ void CHECKANDREPORT(vector<goods> hanghoa) {
 				//  hang hoa trong kho phai lon hon hoac bang so luong hang hoa nhap
 				if (hanghoa[i].amount >= x.amount)
 				{
-					x.calculateTotalMoney(hanghoa); // ham tu tinh tong tien
-					//xuat ra tong tien : x.total_money;
+					// MINH ghi xuat ra tong tien : x.total_money;
+
 					hanghoa[i].amount -= x.amount;
 					os << x << endl;
 					count++;
