@@ -3,6 +3,9 @@
 
 #include<iostream>
 #include<string>
+#include<vector>
+#include"goods.h"
+
 using namespace std;
 
 struct orders {
@@ -16,7 +19,8 @@ struct orders {
 	long total_money;
 
 	friend istream& operator >> (istream& is, orders& order) {
-		is >> order.number >> order.seri;
+		//is >> order.number; // number se tu dong nhap o checkandreport()
+		is >> order.seri;
 		is >> order.amount;					is.ignore();
 		getline(is, order.customerName);	is.clear();
 		getline(is, order.address);			is.clear();
@@ -24,7 +28,7 @@ struct orders {
 		for (int i = 0; i < 3; i++) {
 			is >> order.orderDate[i]; 
 		}
-		is >> order.total_money;
+		//is >> order.total_money; // total_money se tu dong tinh bang ham calculateTotalMoney() o checkandreport()
 		return is;
 	}
 	friend ostream& operator << (ostream& os, orders order) {
@@ -37,8 +41,16 @@ struct orders {
 		for (int i = 0; i < 3; i++) {
 			os << order.orderDate[i] << " ";
 		}
-		os << order.total_money;
+		os << endl << order.total_money;
 		return os;
+	}
+	void calculateTotalMoney(vector<goods> hh) {
+		for (int i = 0; i < hh.size(); i++) {
+			if (hh[i].seri == seri) {
+				total_money = (long) amount * hh[i].price;
+				return;
+			}
+		}
 	}
 };
 
