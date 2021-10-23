@@ -59,7 +59,7 @@ void process(vector< vector <orders> >& dh, vector<goods>& hh) {
 	dh.erase(dh.begin());
 }
 
-void ORDER(vector< vector <orders> >& dh, vector<goods>& hh) {
+void ORDERS_PROCESSING(vector< vector <orders> >& dh, vector<goods>& hh) {
 	dh.clear();
 	getData(dh);
 	while(dh.size() != 0){
