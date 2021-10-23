@@ -7,6 +7,7 @@
 using namespace std;
 
 bool Input(vector<goods>& _hh) {
+	_hh.clear();
 	ifstream input;
 	input.open("HangHoa.txt");
 
@@ -70,7 +71,7 @@ bool deleteGoods(vector<goods>& hh, string _seri) {
 	//if (report) cout << "Ma hang hoa khong ton tai !" << endl;
 	return report;
 }
-void GM(vector<goods>& hh) {
+void GOODS_MANAGEMENT(vector<goods>& hh) {
 	int n;
 	khung(30, 3, 67, 17, 14);
 	int ck = 1;
