@@ -15,7 +15,7 @@ void getData(vector< vector<orders> >& _dh) {
 		orders o;
 		input >> o;
 		if (o.number == 1) {
-			if(add.size() != 0) _dh.push_back(add);	
+			if (add.size() != 0) _dh.push_back(add);
 			add.clear();
 		}
 		add.push_back(o);
@@ -60,12 +60,17 @@ void process(vector< vector <orders> >& dh, vector<goods>& hh) {
 }
 
 void ORDERS_PROCESSING(vector< vector <orders> >& dh, vector<goods>& hh) {
+	int count = 1;
+
 	dh.clear();
 	getData(dh);
-	while(dh.size() != 0){
+	
+	while (dh.size() != 0) {
 		process(dh, hh);
 		updateGoods(hh);
 		updateFileOrders(dh);
+		cout << "Xu Ly Xong Don Hang Thu " << count << endl;
+		count++;
 	}
 	cout << "Don Hang Xu Ly Thanh Cong !";
 }
